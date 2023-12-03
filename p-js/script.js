@@ -1,10 +1,13 @@
 import Background from "./background.js";
 
 document.addEventListener("DOMContentLoaded",function() {
-    const Fundo = new Background
+    let Frames = 0
+    const Fundo = new Background(Frames);
     function loop(){
-        Fundo.drawBackground();
+        Fundo.Animate();
         requestAnimationFrame(loop)
+        Frames++
+        Fundo.frames = Frames
     }
     loop()
     console.log("Dom Carregado")
